@@ -33,7 +33,7 @@
         </div>
         <!--Container Main start-->
         <div class="height-100 bg-light">
-            <h4>Main Components</h4>
+            @yield('content')
         </div>
         <!--Container Main end-->
     </div>
