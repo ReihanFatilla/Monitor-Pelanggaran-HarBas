@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@yield('title')</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/web.min.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+    </header>
+    <div class="wrapper">
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div> <a href="#" class="nav_logo"> <img class="nav_logo-icon" src="{{ asset('images/logo_harbas.png') }}" alt="logo" style="max-width: 30px;
+    max-height: 30px;"> <span class="nav_logo-name">Harapan Bangsa</span> </a>
+                    <div class="nav_list">
+                        @include('layouts.menu')
+                    </div>
+                </div> <a href="#" class="nav_link nav_profile">
+                    <span class="nav_name">Reihan Fatilla</span>
+                    <i class='bx bx-user-circle nav_icon'></i>
+                </a>
+            </nav>
+        </div>
+        <!--Container Main start-->
+        <div class="height-100 bg-light">
+            <h4>Main Components</h4>
+        </div>
+        <!--Container Main end-->
+    </div>
+
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Monitor Pelanggaran App -->
+    <script src="{{ asset('js/web.js') }}"></script>
+</body>
+
+</html>
