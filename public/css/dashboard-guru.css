@@ -1,0 +1,13 @@
+.card-statistic {
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+.card-statistic .col-md-4{
+    background-color: #5F98EF;
+    border-radius: 10px 0 0 10px ;
+}
+
+.bx-light {
+    color: white;
+}
