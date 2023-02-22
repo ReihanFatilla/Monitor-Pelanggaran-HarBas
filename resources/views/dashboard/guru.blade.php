@@ -73,14 +73,14 @@
 
                 @for($i = 0; $i < $pelanggarSize; $i++) 
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-10">
                         <p` class="fs-6">@php
                             $index = $i+1;
                             echo $index.". ".$pelanggar[$i];
                             @endphp
                         </p>
                     </div>
-                    <div class="col-4">
+                    <div class="col-2">
                         <p class="fs-6 text-end">@php
                             echo $jumlahPelanggaran[$i];
                             @endphp
