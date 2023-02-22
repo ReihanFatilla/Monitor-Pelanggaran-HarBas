@@ -52,42 +52,79 @@
 </div>
 <div class="row justify-content-evenly mt-4">
     <div class="col-md-4">
-        
-    </div>
-    <div class="col-md-8">
-        <div class="row card-statistic shadow-lg m-1 p-3 h-100">
-            <p class="fs-4">Pelanggaran Minggu Ini</p>
-            <canvas id="pelanggaran-chart"></canvas>
+        <div class="row card-statistic align-content-start shadow-lg m-1 p-3 h-100">
+            <p class="fs-6 mt-3">Pelanggar Terbanyak</p>
+            <div class="container mt-1">
+                @php
+                $pelanggar = [
+                'Muhammad Reihan Fatilla',
+                'Galang Davian Pradana',
+                'Aldimas Fajar Kurniawan'
+                ];
+
+                $jumlahPelanggaran = [
+                '15',
+                '21',
+                '10'
+                ];
+
+                $pelanggarSize = sizeof($pelanggar);
+                @endphp
+
+                @for($i = 0; $i < $pelanggarSize; $i++) 
+                <div class="row">
+                    <div class="col-md-8">
+                        <p class="fs-6">@php
+                            $index = $i+1;
+                            echo $index.". ".$pelanggar[$i];
+                            @endphp
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="fs-6 text-end">@php
+                            echo $jumlahPelanggaran[$i];
+                            @endphp
+                        </p>
+                    </div>
+                </div>
+            @endfor
         </div>
     </div>
+</div>
+<div class="col-md-8">
+    <div class="row card-statistic shadow-lg m-1 p-3 h-100">
+        <p class="fs-4">Pelanggaran Minggu Ini</p>
+        <canvas id="pelanggaran-chart"></canvas>
+    </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script>
-        const ctx = document.getElementById('pelanggaran-chart');
+<script>
+    const ctx = document.getElementById('pelanggaran-chart');
 
 
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
-                datasets: [{
-                    label: 'Pelanggaran',
-                    data: [5, 19, 3, 5, 2, 3, 1],
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+            datasets: [{
+                label: 'Pelanggaran',
+                data: [5, 19, 3, 5, 2, 3, 1],
 
-                }],
-                pointStyle: 'circle',
-                pointRadius: 10,
-                pointHoverRadius: 15
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+            }],
+            pointStyle: 'circle',
+            pointRadius: 10,
+            pointHoverRadius: 15
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
-        });
-    </script>
+        }
+    });
+</script>
 
-    @endsection
+@endsection
