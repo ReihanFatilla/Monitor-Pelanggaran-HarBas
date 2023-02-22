@@ -7,10 +7,10 @@
 <div class="row justify-content-evenly statistic">
     <div class="col-md-3">
         <div class="row card-statistic shadow-lg m-1">
-            <div class="col-md-4 d-flex justify-content-center">
+            <div class="col-4 d-flex justify-content-center">
                 <i class='bx bx-info-circle nav_icon my-auto bx-md bx-light'></i>
             </div>
-            <div class="col-md-8 center-block">
+            <div class="col-8 center-block">
                 <h5 class="fs-6 text-muted mt-3">Total Pelanggaran</h5>
                 <p class="fs-5 fw-bold">102</p>
             </div>
@@ -18,10 +18,10 @@
     </div>
     <div class="col-md-3">
         <div class="row card-statistic shadow-lg m-1">
-            <div class="col-md-4 d-flex justify-content-center">
+            <div class="col-4 d-flex justify-content-center">
                 <i class='bx bx-info-circle nav_icon my-auto bx-md bx-light'></i>
             </div>
-            <div class="col-md-8 center-block">
+            <div class="col-8 center-block">
                 <h5 class="fs-6 text-muted mt-3">Total Pelanggaran</h5>
                 <p class="fs-5 fw-bold">102</p>
             </div>
@@ -29,10 +29,10 @@
     </div>
     <div class="col-md-3">
         <div class="row card-statistic shadow-lg m-1">
-            <div class="col-md-4 d-flex justify-content-center">
+            <div class="col-4 d-flex justify-content-center">
                 <i class='bx bx-info-circle nav_icon my-auto bx-md bx-light'></i>
             </div>
-            <div class="col-md-8 center-block">
+            <div class="col-8 center-block">
                 <h5 class="fs-6 text-muted mt-3">Total Pelanggaran</h5>
                 <p class="fs-5 fw-bold">102</p>
             </div>
@@ -40,10 +40,10 @@
     </div>
     <div class="col-md-3 mt-2">
         <div class="row card-statistic shadow-lg m-1">
-            <div class="col-md-4 d-flex justify-content-center">
+            <div class="col-4 d-flex justify-content-center">
                 <i class='bx bx-info-circle nav_icon my-auto bx-md bx-light'></i>
             </div>
-            <div class="col-md-8 center-block">
+            <div class="col-8 center-block">
                 <h5 class="fs-6 text-muted mt-3">Total Pelanggaran</h5>
                 <p class="fs-5 fw-bold">102</p>
             </div>
@@ -73,14 +73,14 @@
 
                 @for($i = 0; $i < $pelanggarSize; $i++) 
                 <div class="row">
-                    <div class="col-md-8">
-                        <p class="fs-6">@php
+                    <div class="col-8">
+                        <p` class="fs-6">@php
                             $index = $i+1;
                             echo $index.". ".$pelanggar[$i];
                             @endphp
                         </p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-4">
                         <p class="fs-6 text-end">@php
                             echo $jumlahPelanggaran[$i];
                             @endphp
