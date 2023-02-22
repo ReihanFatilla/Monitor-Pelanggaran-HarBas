@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mt-2">
         <div class="row card-statistic shadow-lg m-1">
             <div class="col-md-4 d-flex justify-content-center">
                 <i class='bx bx-info-circle nav_icon my-auto bx-md bx-light'></i>
@@ -50,4 +50,44 @@
         </div>
     </div>
 </div>
-@endsection
+<div class="row justify-content-evenly mt-4">
+    <div class="col-md-4">
+        
+    </div>
+    <div class="col-md-8">
+        <div class="row card-statistic shadow-lg m-1 p-3 h-100">
+            <p class="fs-4">Pelanggaran Minggu Ini</p>
+            <canvas id="pelanggaran-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('pelanggaran-chart');
+
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+                datasets: [{
+                    label: 'Pelanggaran',
+                    data: [5, 19, 3, 5, 2, 3, 1],
+
+                }],
+                pointStyle: 'circle',
+                pointRadius: 10,
+                pointHoverRadius: 15
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    @endsection
