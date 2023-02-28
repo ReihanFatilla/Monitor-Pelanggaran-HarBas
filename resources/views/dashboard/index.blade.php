@@ -2,7 +2,6 @@
 
 @section('content')
 <p class="fs-4">Statistik Pelanggaran</p>
-
 <link rel="stylesheet" href="{{ asset('css/dashboard-guru.css') }}">
 <div class="row justify-content-evenly statistic">
     <div class="col-md-3">
