@@ -20,14 +20,14 @@
     <div class="wrapper">
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
-                <div> <a href="#" class="nav_logo"> <img class="nav_logo-icon" src="{{ asset('images/logo_harbas.png') }}" alt="logo" style="max-width: 30px;
-    max-height: 30px;"> <span class="nav_logo-name">Harapan Bangsa</span> </a>
+                <div> <a href="#" class="nav_logo"> <img class="nav_logo-icon" src="{{ asset('images/logo_harbas.png') }}" alt="logo" style="max-width: 30px;max-height: 30px;"> <span class="nav_logo-name">Harapan Bangsa</span> </a>
                     <div class="nav_list">
                         @include('layouts.menu')
                     </div>
-                </div> <a href="#" class="nav_link nav_profile">
+                </div> <a href="#" class="nav_link">
+                    <i class='bx bx-user-circle nav_icon bxs-lg'></i>
                     <span class="nav_name">Reihan Fatilla</span>
-                    <i class='bx bx-user-circle nav_icon'></i>
+
                 </a>
             </nav>
         </div>
