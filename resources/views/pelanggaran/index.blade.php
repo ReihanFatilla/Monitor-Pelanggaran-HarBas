@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card-custom shadow-lg m-1 p-3">
-    <table id="table-pelanggaran" class="hover" style="width: 100%;">
+    <table id="pelanggaran-table" class="pelanggaran hover" style="width: 100%;">
         <thead>
             <tr>
                 <th>No</th>
@@ -50,7 +50,7 @@
 
 <script>
     $(document).ready(function() {
-        $('#table-pelanggaran').DataTable();
+        $('#pelanggaran-table').DataTable();
     });
 </script>
 
