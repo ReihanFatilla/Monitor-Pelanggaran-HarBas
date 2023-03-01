@@ -1,28 +1,45 @@
 @extends('layouts.web')
 
 @section('content')
-<link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.css">
-<div class="container">
-    <table id="myTable" style="width:100%;">
+<div class="card-custom shadow-lg m-1 p-3">
+    <table id="table-pelanggaran" class="hover" style="width: 100%;">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Kelas</th>
+                <th>Tanggal</th>
+                <th>Jenis Pelanggaran</th>
+                <th>Catatan</th>
             </tr>
         </thead>
         <tbody>
-            @for($i = 0; $i < 10; $i++) <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
-                <td>$320,800</td>
+            <?php $no = 1 ?>
+            @for($i = 0; $i < 100; $i++) <tr>
+                <td><?php echo $no ?></td>
+                <td>Saleh Rashid</td>
+                <td>XI RPL B</td>
+                <td>23 Januari 2022</td>
+                <td>Pemalakan</td>
+                <td>Memalak adek kelas 500 juta</td>
                 </tr>
+                <?php $no++ ?>
+                <td><?php echo $no ?></td>
+                <td>Seprete Kurnimawan</td>
+                <td>X TKJ C</td>
+                <td>27 Maret 2022</td>
+                <td>Bully</td>
+                <td>memenggal kepala teman sekelas</td>
+                </tr>
+                <?php $no++ ?>
+                <td><?php echo $no ?></td>
+                <td>Pataris Lestanari</td>
+                <td>XII TKJ A</td>
+                <td>12 November 2022</td>
+                <td>Seragam</td>
+                <td>Memodifikasi seragam sendiri</td>
+                </tr>
+                <?php $no++ ?>
                 @endfor
         </tbody>
     </table>
@@ -33,7 +50,7 @@
 
 <script>
     $(document).ready(function() {
-        $('#myTable').DataTable();
+        $('#table-pelanggaran').DataTable();
     });
 </script>
 

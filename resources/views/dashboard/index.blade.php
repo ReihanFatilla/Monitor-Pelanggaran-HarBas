@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ asset('css/dashboard-guru.css') }}">
 <div class="row justify-content-evenly statistic">
     <div class="col-md-3">
-        <div class="row card-statistic shadow-lg m-1">
+        <div class="row card-custom shadow-lg m-1">
             <div class="col-4 d-flex justify-content-center">
                 <i class='bx bx-info-circle nav_icon my-auto bx-md bx-light'></i>
             </div>
@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="col-md-3">
-        <div class="row card-statistic shadow-lg m-1">
+        <div class="row card-custom shadow-lg m-1">
             <div class="col-4 d-flex justify-content-center">
                 <i class='bx bx-info-circle nav_icon my-auto bx-md bx-light'></i>
             </div>
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="col-md-3">
-        <div class="row card-statistic shadow-lg m-1">
+        <div class="row card-custom shadow-lg m-1">
             <div class="col-4 d-flex justify-content-center">
                 <i class='bx bx-info-circle nav_icon my-auto bx-md bx-light'></i>
             </div>
@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="col-md-3 mt-2">
-        <div class="row card-statistic shadow-lg m-1">
+        <div class="row card-custom shadow-lg m-1">
             <div class="col-4 d-flex justify-content-center">
                 <i class='bx bx-info-circle nav_icon my-auto bx-md bx-light'></i>
             </div>
@@ -52,7 +52,7 @@
 </div>
 <div class="row justify-content-evenly mt-4">
     <div class="col-md-4">
-        <div class="row card-statistic align-content-start shadow-lg m-1 p-3 h-100">
+        <div class="row card-custom align-content-start shadow-lg m-1 p-3 h-100">
             <p class="fs-6 mt-3">Pelanggar Terbanyak</p>
             <div class="container mt-1">
                 @php
@@ -92,7 +92,7 @@
     </div>
 </div>
 <div class="col-md-8">
-    <div class="row card-statistic shadow-lg m-1 p-3 h-100">
+    <div class="row card-custom shadow-lg m-1 p-3 h-100">
         <p class="fs-4">Pelanggaran Minggu Ini</p>
         <canvas id="pelanggaran-chart"></canvas>
     </div>
