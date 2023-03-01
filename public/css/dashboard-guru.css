@@ -1,25 +1,25 @@
-.card-statistic {
+.card-custom {
     border-radius: 5px;
     background-color: whitesmoke;
 }
 
-.statistic .col-md-4{
+.statistic .col-md-3 .card-custom .col-4 {
     border-radius: 5px 0 0 5px ;
 }
 
-.statistic .col-md-3:nth-child(1) .card-statistic .col-md-4{
+.statistic .col-md-3:nth-child(1) .card-custom .col-4{
     background-color: #5F98EF;
 }
 
-.statistic .col-md-3:nth-child(2) .card-statistic .col-md-4{
+.statistic .col-md-3:nth-child(2) .card-custom .col-4{
     background-color: #7BB972;
 }
 
-.statistic .col-md-3:nth-child(3) .card-statistic .col-md-4{
+.statistic .col-md-3:nth-child(3) .card-custom .col-4{
     background-color: #89CBF2;
 }
 
-.statistic .col-md-3:nth-child(4) .card-statistic .col-md-4{
+.statistic .col-md-3:nth-child(4) .card-custom .col-4{
     background-color: #F2A846;
 }
 

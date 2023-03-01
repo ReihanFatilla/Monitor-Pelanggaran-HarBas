@@ -5,9 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
-
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="{{ asset('css/dashboard-guru.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pelanggaran.css') }}">
     <link rel="stylesheet" href="{{ asset('css/web.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -20,14 +23,14 @@
     <div class="wrapper">
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
-                <div> <a href="#" class="nav_logo"> <img class="nav_logo-icon" src="{{ asset('images/logo_harbas.png') }}" alt="logo" style="max-width: 30px;
-    max-height: 30px;"> <span class="nav_logo-name">Harapan Bangsa</span> </a>
+                <div> <a href="#" class="nav_logo"> <img class="nav_logo-icon" src="{{ asset('images/logo_harbas.png') }}" alt="logo" style="max-width: 30px;max-height: 30px;"> <span class="nav_logo-name">Harapan Bangsa</span> </a>
                     <div class="nav_list">
                         @include('layouts.menu')
                     </div>
-                </div> <a href="#" class="nav_link nav_profile">
+                </div> <a href="#" class="nav_link">
+                    <i class='bx bx-user-circle nav_icon bxs-lg'></i>
                     <span class="nav_name">Reihan Fatilla</span>
-                    <i class='bx bx-user-circle nav_icon'></i>
+
                 </a>
             </nav>
         </div>
@@ -39,10 +42,8 @@
     </div>
 
     <!-- REQUIRED SCRIPTS -->
-    <!-- jQuery -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Monitor Pelanggaran App -->
     <script src="{{ asset('js/web.js') }}"></script>
 </body>

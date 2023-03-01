@@ -1,0 +1,35 @@
+#pelanggaran-table {
+    border-collapse: collapse;
+    margin: 25px 0 !important;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+#pelanggaran-table thead tr {
+    background-color: #5F98EF;
+    color: #ffffff;
+    text-align: left;
+}
+
+#pelanggaran-table th,
+#pelanggaran-table td {
+    padding: 12px 15px;
+}
+
+#pelanggaran-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+#pelanggaran-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+#pelanggaran-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.dataTables_length {
+    margin-bottom: 25px;
+}
