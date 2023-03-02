@@ -16,8 +16,18 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
+<<<<<<< HEAD
+Route::get('/', function () {
+    return view('login.before-login');
+});
+
+Route::get('/welcome', function () {
+    return view('layouts.web');
+});
+=======
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/pelanggaran', [PelanggaranController::class, 'index'])->name('pelanggaran');
 
 
+>>>>>>> 7d0edfad009cc9b753ba8d1c6f41f31b089a0338
