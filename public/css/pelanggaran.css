@@ -1,3 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+:root {
+    --header-height: 3rem;
+    --nav-width: 68px;
+    --first-color: white;
+    --theme-color: #5F98EF;
+    --first-color-light: black;
+    --white-color: black;
+    --body-font: "Nunito", sans-serif;
+    --normal-font-size: 1rem;
+    --z-fixed: 100;
+}
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+body {
+    position: relative;
+    margin: var(--header-height) 0 0 0;
+    padding: 0 1rem;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: 0.5s;
+}
+
 #pelanggaran-table {
     border-collapse: collapse;
     margin: 25px 0 !important;
@@ -15,21 +41,35 @@
 
 #pelanggaran-table th,
 #pelanggaran-table td {
-    padding: 12px 15px;
+    padding: 15px 15px;
 }
 
 #pelanggaran-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 0.5px solid #e8e8e8;
 }
 
-#pelanggaran-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+#pelanggaran-table tbody tr.no-padding,
+#pelanggaran-table tbody tr.no-padding:hover{
+    background-color: white;
+}
+
+
+#pelanggaran-table tbody tr.even {
+    background-color: white;
 }
 
 #pelanggaran-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #5F98EF;
 }
 
 .dataTables_length {
     margin-bottom: 25px;
+}
+
+div.slider {
+    display: none;
+}
+
+table#pelanggaran-table tbody td.no-padding {
+    padding: 0;
 }
