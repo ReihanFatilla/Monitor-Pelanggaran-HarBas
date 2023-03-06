@@ -7,7 +7,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="//cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
 
 <script>
     var listPelanggaran = function(){
@@ -83,6 +83,7 @@
 
     $(document).ready(function() {
         var pelanggaranTable = $('#pelanggaran-table').DataTable({
+            pagingType: 'simple_numbers',
             data: listPelanggaran(),
             columns: [
                 {
