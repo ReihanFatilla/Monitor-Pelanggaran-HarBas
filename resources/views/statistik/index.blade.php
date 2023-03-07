@@ -30,30 +30,32 @@
 <script>
     const pelanggaranTahunChart = document.getElementById('pelanggaran-chart-tahun');
 
-    const listMonths = ["Jan", "Feb", "Mar", "Apr", "Mei", "Juni", "Juli", "Agus", "Sept", "Nov", "Des"]
-    const listPelanggaran = [50, 40, 35, 67, 63, 23, 24, 53, 14, 19, 20, 28]
+    const labelsTahun = @json($labelsTahun);
+    const kelas10Tahun = @json($kelas10Tahun);
+    const kelas11Tahun = @json($kelas11Tahun);
+    const kelas12Tahun = @json($kelas12Tahun);
 
 
     new Chart(pelanggaranTahunChart, {
         type: 'line',
         data: {
-            labels: listMonths,
+            labels: labelsTahun,
             datasets: [{
-                label: 'Pelanggaran',
-                data: listPelanggaran,
+                label: 'Kelas 10',
+                data: kelas10Tahun,
+            },{
+                label: 'Kelas 11',
+                data: kelas11Tahun,
+            },{
+                label: 'Kelas 12',
+                data: kelas12Tahun,
+            },
 
-            }],
+        ],
             pointStyle: 'circle',
             pointRadius: 10,
             pointHoverRadius: 15
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
     });
 </script>
 
@@ -62,7 +64,7 @@
 
     const listKelas = ["Kelas 10", "Kelas 11", "Kelas 12"];
 
-    const listPelanggaranKelas = [8, 12, 23]
+    listPelanggaranKelas = [@json($totalKelas10), @json($totalKelas11), @json($totalKelas12)];
 
     const listBorderColor = [
         'rgba(255, 99, 132)',
@@ -87,38 +89,24 @@
             pointRadius: 10,
             pointHoverRadius: 15
         },
-
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
     });
 </script>
 
 <script>
     const pelanggaranBulanChart = document.getElementById('pelanggaran-chart-bulan');
 
-    const listBulan = @json($labels);
-    const listPelanggaranTahun = @json($data);
-
-    const listPelanggaranBulan = function(){
-        var listPelanggaran = [];
-        for(var i = 0; i<=30;i++){
-            listPelanggaran.push(Math.floor(Math.random() * 50) + 1)
-        }
-        return listPelanggaran
-    };
+    const labelsTanggal = @json($labelsTanggal);
+    const kelas10Tanggal = @json($kelas10Tanggal);
+    const kelas11Tanggal = @json($kelas11Tanggal);
+    const kelas12Tanggal = @json($kelas12Tanggal);
 
     new Chart(pelanggaranBulanChart, {
         type: 'bar',
         data: {
-            labels: listBulan,
+            labels: labelsTanggal,
             datasets: [{
                 label: 'Kelas 10',
-                data: listPelanggaranTahun,
+                data: kelas10Tanggal,
                 backgroundColor: [
                     'rgb(255, 99, 132)',
                 ],
@@ -126,37 +114,29 @@
                     'rgb(255, 99, 132)',
                 ],
             }
-            // ,{
-            //     label: 'Kelas 11',
-            //     data: listPelanggaranBulan(),
-            //     backgroundColor: [
-            //         'rgb(75, 192, 192)',
-            //     ],
-            //     borderColor: [
-            //         'rgb(75, 192, 192)',
-            //     ],
-            // },{
-            //     label: 'Kelas 12',
-            //     data: listPelanggaranBulan(),
-            //     backgroundColor: [
-            //         'rgb(153, 102, 255)'
-            //     ],
-            //     borderColor: [
-            //         'rgb(153, 102, 255)',
-            //     ],
-            // }
+            ,{
+                label: 'Kelas 11',
+                data: kelas11Tanggal,
+                backgroundColor: [
+                    'rgb(75, 192, 192)',
+                ],
+                borderColor: [
+                    'rgb(75, 192, 192)',
+                ],
+            },{
+                label: 'Kelas 12',
+                data: kelas12Tanggal,
+                backgroundColor: [
+                    'rgb(153, 102, 255)'
+                ],
+                borderColor: [
+                    'rgb(153, 102, 255)',
+                ],
+            }
         ],
             pointStyle: 'circle',
             pointRadius: 10,
             pointHoverRadius: 15
-        },
-
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
         }
     });
 </script>

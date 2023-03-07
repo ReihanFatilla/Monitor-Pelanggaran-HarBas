@@ -14,6 +14,6 @@ class PelanggaranSeeder extends Seeder
      */
     public function run()
     {
-        Pelanggaran::factory(100)->create();
+        Pelanggaran::factory(2000)->create();
     }
 }

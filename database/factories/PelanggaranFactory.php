@@ -15,7 +15,7 @@ class PelanggaranFactory extends Factory
      */
     public function definition()
     {
-        $fakeDate = $this->faker->dateTimeBetween('-2 months', '+9 months');
+        $fakeDate = $this->faker->dateTimeBetween('-2 months', '+10 months');
         return [
             'id_kategori' => rand(1, 5),
             'nisn' => $this->faker->unique()->numberBetween(1000000000, 9999999999),
