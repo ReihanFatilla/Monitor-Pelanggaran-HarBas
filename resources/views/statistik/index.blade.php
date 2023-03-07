@@ -101,7 +101,8 @@
 <script>
     const pelanggaranBulanChart = document.getElementById('pelanggaran-chart-bulan');
 
-    const listTanggal = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+    const listBulan = @json($labels);
+    const listPelanggaranTahun = @json($data);
 
     const listPelanggaranBulan = function(){
         var listPelanggaran = [];
@@ -114,35 +115,36 @@
     new Chart(pelanggaranBulanChart, {
         type: 'bar',
         data: {
-            labels: listTanggal,
+            labels: listBulan,
             datasets: [{
                 label: 'Kelas 10',
-                data: listPelanggaranBulan(),
+                data: listPelanggaranTahun,
                 backgroundColor: [
                     'rgb(255, 99, 132)',
                 ],
                 borderColor: [
                     'rgb(255, 99, 132)',
-                ],
-            },{
-                label: 'Kelas 11',
-                data: listPelanggaranBulan(),
-                backgroundColor: [
-                    'rgb(75, 192, 192)',
-                ],
-                borderColor: [
-                    'rgb(75, 192, 192)',
-                ],
-            },{
-                label: 'Kelas 12',
-                data: listPelanggaranBulan(),
-                backgroundColor: [
-                    'rgb(153, 102, 255)'
-                ],
-                borderColor: [
-                    'rgb(153, 102, 255)',
                 ],
             }
+            // ,{
+            //     label: 'Kelas 11',
+            //     data: listPelanggaranBulan(),
+            //     backgroundColor: [
+            //         'rgb(75, 192, 192)',
+            //     ],
+            //     borderColor: [
+            //         'rgb(75, 192, 192)',
+            //     ],
+            // },{
+            //     label: 'Kelas 12',
+            //     data: listPelanggaranBulan(),
+            //     backgroundColor: [
+            //         'rgb(153, 102, 255)'
+            //     ],
+            //     borderColor: [
+            //         'rgb(153, 102, 255)',
+            //     ],
+            // }
         ],
             pointStyle: 'circle',
             pointRadius: 10,
