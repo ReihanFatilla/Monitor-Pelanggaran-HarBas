@@ -10,6 +10,8 @@ class Pelanggaran extends Model
 {
     use HasFactory;
 
+    protected $table = "pelanggaran";
+
     protected $guarded = [];
 
     public function kategori(){
