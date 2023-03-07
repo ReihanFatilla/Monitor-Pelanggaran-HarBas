@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class PelanggaranController extends Controller
 {
     public function index(){
-        // return response()->json([
-        //     'pelanggaran' => Pelanggaran::with('kategori')->get(),
-        // ], 200);
-        return view('pelanggaran.index');
+        $pelanggaran = Pelanggaran::with('kategori')->get();
+        
+        // $kategori = Pelanggaran::with("kategori")->get()->nama_kategori;
+        return view('pelanggaran.index', compact('pelanggaran'));
     }
 }
