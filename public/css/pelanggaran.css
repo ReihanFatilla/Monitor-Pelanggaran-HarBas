@@ -58,6 +58,10 @@ body {
     background-color: white;
 }
 
+#pelanggaran-table tbody tr.odd ~ .no-padding {
+    background-color: whitesmoke;
+}
+
 #pelanggaran-table tbody tr:last-of-type {
     border-bottom: 2px solid #5F98EF;
 }
