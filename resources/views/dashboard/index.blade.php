@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 mt-2">
+    <div class="col-md-3">
         <div class="row card-custom shadow-lg m-1">
             <div class="col-4 d-flex justify-content-center">
                 <i class='bx bx-info-circle nav_icon my-auto bx-md bx-light'></i>
