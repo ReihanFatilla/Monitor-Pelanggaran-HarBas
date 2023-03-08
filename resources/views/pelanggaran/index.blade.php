@@ -7,44 +7,11 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="//cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
 
 <script>
-    var listPelanggaran = function(){
-        var list = [];
-        var no = 1;
-        for(var i = 0;i < 100;i++){
-            list.push({
-            no: no++,
-            nama: 'Saleh Rashid',
-            kelas: 'XI RPL B',
-            tanggal: '23 Januari 2022',
-            jenis: 'Pemalakan',
-            catatan: 'Memalak adek kelas 500 juta',
-            pelapor: 'Andinata',
-            nisn: '1234567890'
-        },{
-            no: no++,
-            nama: 'Galang Davian Pradana',
-            kelas: 'XII TKR A',
-            tanggal: '10 Maret 2022',
-            jenis: 'Pembullyan',
-            catatan: 'membully teman sekelas',
-            pelapor: 'Supriyadi',
-            nisn: '1234920890'
-        },{
-            no: no++,
-            nama: 'Rizky Fauzan',
-            kelas: 'X TKJ C',
-            tanggal: '30 Agustus 2022',
-            jenis: 'Sampah',
-            catatan: 'Buang sampah sembarangan',
-            pelapor: 'Kapsarudi',
-            nisn: '10291567890'
-        })
-        }
-        return list
-    }
+    var listPelanggaran = @json($pelanggaran);
+    console.log(listPelanggaran)
 
     function format(d) {
         return (
@@ -83,11 +50,12 @@
 
     $(document).ready(function() {
         var pelanggaranTable = $('#pelanggaran-table').DataTable({
-            data: listPelanggaran(),
+            pagingType: 'simple_numbers',
+            data: listPelanggaran,
             columns: [
                 {
                     title: 'No',
-                    data: 'no'
+                    data: 'id'
                 },
                 {
                     title: 'Nama',
@@ -99,11 +67,11 @@
                 },
                 {
                     title: 'Tanggal',
-                    data: 'tanggal'
+                    data: 'created_at'
                 },
                 {
                     title: 'Jenis Pelanggaran',
-                    data: 'jenis'
+                    data: 'kategori.nama_kategori'
                 },
                 {
                     title: 'Catatan',

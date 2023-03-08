@@ -3,6 +3,11 @@
     <span class="nav_name">Dashboard</span> 
 </a>
 
+<a href="/statistik" class="nav_link"> 
+    <i class='bx bx-bar-chart-alt-2 nav_icon'></i> 
+    <span class="nav_name">Statistika</span> 
+</a>
+
 <a href="/pelanggaran" class="nav_link"> 
     <i class='bx bx-receipt nav_icon' size='lg'></i> 
     <span class="nav_name">Pelanggaran</span> 

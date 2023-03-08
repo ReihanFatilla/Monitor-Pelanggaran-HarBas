@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\PelanggaranController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -28,8 +29,12 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 Route::get('/pelanggaran', [PelanggaranController::class, 'index'])->name('pelanggaran');
 
+Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');
+
 
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
