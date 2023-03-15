@@ -8,9 +8,14 @@
     <span class="nav_name">Statistika</span> 
 </a>
 
+<a href="/kategori" class="nav_link"> 
+    <i class='bx bxs-category-alt nav_icon' size='lg'></i> 
+    <span class="nav_name">Pelanggaran</span> 
+</a>
+
 <a href="/pelanggaran" class="nav_link"> 
     <i class='bx bx-receipt nav_icon' size='lg'></i> 
-    <span class="nav_name">Pelanggaran</span> 
+    <span class="nav_name">Kategori</span> 
 </a>
 
 <a href="#" class="nav_link"> 
