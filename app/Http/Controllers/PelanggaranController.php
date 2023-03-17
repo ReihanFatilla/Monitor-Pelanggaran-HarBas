@@ -13,4 +13,9 @@ class PelanggaranController extends Controller
         
         return view('pelanggaran.index', compact('pelanggaran'));
     }
+
+    public function view_input(){
+        $input_pelanggaran = Pelanggaran::all();
+        return view('pelanggaran.input-pelanggaran', compact('input_pelanggaran'));
+    }
 }

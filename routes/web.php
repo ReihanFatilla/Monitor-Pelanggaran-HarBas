@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\PelanggaranController;
+use App\Http\Controllers\InputPelanggaranController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -31,7 +32,7 @@ Route::get('/pelanggaran', [PelanggaranController::class, 'index'])->name('pelan
 
 Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');
 
-
+Route::get('/input-pelanggaran', [PelanggaranController::class, 'view_input'])->name('input-pelanggaran');
 
 Auth::routes();
 
