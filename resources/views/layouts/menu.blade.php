@@ -18,7 +18,7 @@
     <span class="nav_name">Kategori</span> 
 </a>
 
-<a href="#" class="nav_link"> 
+<a href="/input-pelanggaran" class="nav_link"> 
     <i class='bx bx-check-circle nav_icon'></i> 
     <span class="nav_name">Input Pelanggaran</span> 
 </a>

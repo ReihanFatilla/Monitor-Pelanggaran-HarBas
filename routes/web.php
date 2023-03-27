@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\PelanggaranController;
+use App\Http\Controllers\InputPelanggaranController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -33,6 +34,8 @@ Route::get('/pelanggaran', [PelanggaranController::class, 'index'])->name('pelan
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
 
 Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');
+
+Route::get('/input-pelanggaran', [PelanggaranController::class, 'view_input'])->name('input-pelanggaran');
 
 Auth::routes();
 
