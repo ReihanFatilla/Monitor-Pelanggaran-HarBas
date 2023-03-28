@@ -1,10 +1,18 @@
 @extends('layouts.web')
 
 @section('content')
-<div class="card-custom shadow-lg m-1 p-5">
-    <table id="kategori-table" class="hover" style="width: 100%;">
-    </table>
+<div class="row">
+    <div class="col-md-8">
+        <div class="card-custom shadow-lg m-1 p-5">
+            <table id="kategori-table" class="table table-striped table-bordered table-hover" style="width: 100%;">
+            </table>
+        </div>
+    </div>
+    <div class="col-md-4">
+
+    </div>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
