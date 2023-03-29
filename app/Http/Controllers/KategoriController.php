@@ -16,15 +16,10 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = Kategori::get();
 
-        $amountUsedKategori = Pelanggaran::with('kategori')
-        ->select(DB::raw("COUNT(*) as count"), 'id_kategori')
-        ->groupBy('id_kategori')
-        ->get()
-        ->pluck('count', 'kategori.nama_kategori');
+        $kategori = Kategori::withCount('pelanggarans')->get();
 
-        return view('kategori.index', compact('kategori', 'amountUsedKategori'));
+        return view('kategori.index', compact('kategori'));
     }
 
     /**
@@ -45,7 +40,10 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kategori = new Kategori;
+        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->save();
+        return redirect('/kategori');
     }
 
     /**

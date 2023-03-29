@@ -35,6 +35,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/pelanggaran', [PelanggaranController::class, 'index'])->name('pelanggaran');
 
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
+Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store');
 
 Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');
 
