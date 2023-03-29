@@ -103,7 +103,7 @@ a {
     margin-bottom: 1.5rem;
     transition: 0.3s;
 }
-.nav_link:hover {
+.nav_link:hover, .active {
     color: var(--biru-tua);
 }
 .nav_profile{
@@ -117,9 +117,6 @@ a {
 }
 .body-pd {
     padding-left: calc(var(--nav-width) + 1rem);
-}
-.active {
-    color: var(--white-color);
 }
 .active::before {
     content: "";
