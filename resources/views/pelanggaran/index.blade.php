@@ -2,8 +2,10 @@
 
 @section('content')
 <div class="card-custom shadow-lg m-1 p-5">
-    <table id="pelanggaran-table" class="hover" style="width: 100%;">
-    </table>
+    <div class="table-responsive">
+        <table id="pelanggaran-table" class="hover" style="width: 100%;">
+        </table>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -33,6 +33,16 @@
                     <span class="nav_name">Reihan Fatilla</span>
 
                 </a>
+                <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            <i class="bi bi-box-arrow-left"></i>
+                            Logout Sementara
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
             </nav>
         </div>
         <!--Container Main start-->

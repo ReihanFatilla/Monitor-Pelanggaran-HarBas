@@ -32,14 +32,14 @@ Auth::routes();
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/pelanggaran', [PelanggaranController::class, 'index'])->name('pelanggaran');
+Route::get('/pelanggaran', [PelanggaranController::class, 'index'])->name('pelanggaran')->middleware(['checkLevel:siswa']);
 
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
 Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store');
 
-Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');
+Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik')->middleware(['checkLevel:siswa']);
 
-Route::get('/input-pelanggaran', [PelanggaranController::class, 'view_input'])->name('input-pelanggaran');
+Route::get('/input-pelanggaran', [PelanggaranController::class, 'view_input'])->name('input-pelanggaran')->middleware(['checkLevel:guru']);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
