@@ -28,11 +28,11 @@ Route::get('/welcome', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/pelanggaran', [PelanggaranController::class, 'index'])->name('pelanggaran');
+Route::get('/pelanggaran', [PelanggaranController::class, 'index'])->name('pelanggaran')->middleware(['checkLevel:siswa']);
 
-Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');
+Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik')->middleware(['checkLevel:siswa']);
 
-Route::get('/input-pelanggaran', [PelanggaranController::class, 'view_input'])->name('input-pelanggaran');
+Route::get('/input-pelanggaran', [PelanggaranController::class, 'view_input'])->name('input-pelanggaran')->middleware(['checkLevel:guru']);
 
 Auth::routes();
 
