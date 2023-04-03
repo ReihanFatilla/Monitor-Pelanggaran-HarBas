@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
@@ -30,17 +31,23 @@ Route::get('/welcome', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware('auth')->group(function () {
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
-Route::get('/pelanggaran', [PelanggaranController::class, 'index'])->name('pelanggaran')->middleware(['checkLevel:siswa']);
+    // Kategori
+    Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori')->middleware('checkLevel')->middleware('checkLevel:admin');
+    Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store')->middleware('checkLevel:admin');
+    Route::delete('/kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('kategori.delete')->middleware('checkLevel:admin');
+    Route::put('/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.put')->middleware('checkLevel:admin');
 
-Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
-Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store');
+    // Users
+    Route::get('/users', [HomeController::class, 'index'])->name('users')->middleware('checkLevel:admin');
 
-Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik')->middleware(['checkLevel:siswa']);
+    // Statistik
+    Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');
 
-Route::get('/input-pelanggaran', [PelanggaranController::class, 'view_input'])->name('input-pelanggaran')->middleware(['checkLevel:guru']);
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-
+    // Pelanggaran
+    Route::get('/pelanggaran', [PelanggaranController::class, 'index'])->name('pelanggaran')->middleware('checkLevel:admin, siswa');
+    Route::get('/input-pelanggaran', [PelanggaranController::class, 'view_input'])->name('input-pelanggaran')->middleware('checkLevel:admin, guru');
+});
