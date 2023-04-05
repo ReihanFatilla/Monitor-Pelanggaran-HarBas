@@ -15,24 +15,21 @@ class StatistikController extends Controller
         $kelas10Tahun = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
             ->where('kelas', 'LIKE', '%10%')
             ->groupBy(DB::raw("Month(created_at)"))
-            ->pluck('count', 'month_name')
-            ->values();
+            ->pluck('count');
 
         $kelas11Tahun = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
             ->where('kelas', 'LIKE', '%11%')
             ->groupBy(DB::raw("Month(created_at)"))
-            ->pluck('count', 'month_name')
-            ->values();
+            ->pluck('count');
 
         $kelas12Tahun = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
             ->where('kelas', 'LIKE', '%12%')
             ->groupBy(DB::raw("Month(created_at)"))
-            ->pluck('count', 'month_name')
-            ->values();
+            ->pluck('count');
 
         $labelsTahun = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
             ->groupBy(DB::raw("Month(created_at)"))
-            ->pluck('count', 'month_name')->keys()
+            ->pluck('month_name')
             ->map(function ($m) {
                 return substr($m, 0, 3);
             });
@@ -40,25 +37,25 @@ class StatistikController extends Controller
         $labelsTanggal = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("DAY(created_at) as date"))
             ->whereMonth('created_at', Carbon::now()->month)
             ->groupBy(DB::raw("Date(created_at)"))
-            ->pluck('count', 'date')->keys();
+            ->pluck('date');
 
         $kelas10Tanggal = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
             ->where('kelas', 'LIKE', '%10%')
             ->whereMonth('created_at', Carbon::now()->month)
             ->groupBy(DB::raw("Date(created_at)"))
-            ->pluck('count', 'date')->values();
+            ->pluck('count');
 
         $kelas11Tanggal = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
             ->where('kelas', 'LIKE', '%11%')
             ->whereMonth('created_at', Carbon::now()->month)
             ->groupBy(DB::raw("Date(created_at)"))
-            ->pluck('count', 'date')->values();
+            ->pluck('count');
 
         $kelas12Tanggal = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
             ->where('kelas', 'LIKE', '%12%')
             ->whereMonth('created_at', Carbon::now()->month)
             ->groupBy(DB::raw("Date(created_at)"))
-            ->pluck('count', 'date')->values();
+            ->pluck('count');
 
         $totalKelas10 = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
             ->where('kelas', 'LIKE', '%10%')

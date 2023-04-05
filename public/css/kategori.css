@@ -1,0 +1,22 @@
+#kategori-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+}
+
+#kategori-table th,
+#kategori-table td {
+    padding: 12px 15px;
+}
+
+#kategori-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+#kategori-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+#kategori-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
