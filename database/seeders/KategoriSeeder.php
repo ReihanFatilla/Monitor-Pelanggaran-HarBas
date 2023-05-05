@@ -18,7 +18,6 @@ class KategoriSeeder extends Seeder
         DB::table('Kategori')->insert([
             'nama_kategori' => 'Berkelahi',
         ]);
-
         DB::table('Kategori')->insert([
             'nama_kategori' => 'Pemalakan',
         ]);

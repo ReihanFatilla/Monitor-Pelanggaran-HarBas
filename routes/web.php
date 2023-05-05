@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
 
     // Kategori
-    Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori')->middleware('checkLevel')->middleware('checkLevel:admin');
+    Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori')->middleware('checkLevel:admin');
     Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store')->middleware('checkLevel:admin');
     Route::delete('/kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('kategori.delete')->middleware('checkLevel:admin');
     Route::put('/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.put')->middleware('checkLevel:admin');
@@ -50,4 +50,6 @@ Route::middleware('auth')->group(function () {
     // Pelanggaran
     Route::get('/pelanggaran', [PelanggaranController::class, 'index'])->name('pelanggaran')->middleware('checkLevel:admin, siswa');
     Route::get('/input-pelanggaran', [PelanggaranController::class, 'view_input'])->name('input-pelanggaran')->middleware('checkLevel:admin, guru');
+    Route::get('/get-nisn', [PelanggaranController::class, 'get_nisn'])->middleware('checkLevel:admin, guru');
+    Route::get('/get-nama-by-kelas', [PelanggaranController::class, 'get_nama_by_kelas'])->middleware('checkLevel:admin, guru');
 });

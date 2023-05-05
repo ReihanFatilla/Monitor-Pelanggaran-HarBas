@@ -20,6 +20,7 @@ class PelanggaranFactory extends Factory
         $faker = Faker::create('id_ID');
 
         $fakeDate = $faker->dateTimeBetween('-2 months', '+2 months');
+
         return [
             'id_kategori' => rand(1, 5),
             'nisn' => $faker->unique()->numberBetween(1000000000, 9999999999),
