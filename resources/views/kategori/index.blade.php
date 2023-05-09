@@ -22,6 +22,7 @@
     $(document).ready(function() {
         var pelanggaranTable = $('#kategori-table').DataTable({
             pagingType: 'simple_numbers',
+            responsive: true,
             data: listKategori,
             columns: [{
                     title: 'No',
@@ -44,18 +45,53 @@
                 target: 3,
                 render: function(data, type, row) {
                     return `<div class="dropdown text-center">
-  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Aksi
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">Detail</a></li>
-    <li><a class="dropdown-item" href="#">Edit</a></li>
-    <li><a class="dropdown-item" href="#">Delete</a></li>
-  </ul>
-</div>`;
+                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Aksi
+                                </button>
+                                <ul class="dropdown-menu" style="min-width:0;" aria-labelledby="dropdownMenuButton1">
+                                    <li>
+                                    <a class="dropdown-item editButton" data-bs-toggle="modal" data-bs-target="#exampleModal${row.id}">
+                                        Edit
+                                    </a>
+                                    </li>
+                                    <li>
+                                    <form class="" action="/kategori/delete/${row.id}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="dropdown-item">Delete</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="modal fade" id="exampleModal${row.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <form action="/kategori/update/${row.id}" method="post">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="kategori-input-edit" class="form-label">Category</label>
+                                                    <input type="text" value="${row.nama_kategori}" name="nama_kategori" class="form-control" aria-describedby="emailHelp">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Update Category</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>`;
                 }
             }]
         });
+
     });
 </script>
 @endsection

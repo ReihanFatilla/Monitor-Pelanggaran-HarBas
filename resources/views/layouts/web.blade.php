@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/web.css') }}">
     <link rel="stylesheet" href="{{ asset('css/kategori.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 
 <body id="body-pd">
