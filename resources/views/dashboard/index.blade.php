@@ -17,10 +17,10 @@
     <div class="col-md-3">
         <div class="row card-custom shadow-lg m-1">
             <div class="col-4 d-flex justify-content-center">
-                <i class='bx bx-info-circle nav_icon my-auto bx-md bx-light'></i>
+                <i class='bx bxs-user-x nav_icon my-auto bx-md bx-light'></i>
             </div>
             <div class="col-8 center-block">
-                <h5 class="fs-6 text-muted mt-3">Total Pelanggaran</h5>
+                <h5 class="fs-6 text-muted mt-3">Total Pelanggar</h5>
                 <p class="fs-5 fw-bold">102</p>
             </div>
         </div>
@@ -28,10 +28,10 @@
     <div class="col-md-3">
         <div class="row card-custom shadow-lg m-1">
             <div class="col-4 d-flex justify-content-center">
-                <i class='bx bx-info-circle nav_icon my-auto bx-md bx-light'></i>
+                <i class='bx bx-category-alt nav_icon my-auto bx-md bx-light'></i>
             </div>
             <div class="col-8 center-block">
-                <h5 class="fs-6 text-muted mt-3">Total Pelanggaran</h5>
+                <h5 class="fs-6 text-muted mt-3">Total Kategori</h5>
                 <p class="fs-5 fw-bold">102</p>
             </div>
         </div>
@@ -39,10 +39,10 @@
     <div class="col-md-3">
         <div class="row card-custom shadow-lg m-1">
             <div class="col-4 d-flex justify-content-center">
-                <i class='bx bx-info-circle nav_icon my-auto bx-md bx-light'></i>
+                <i class='bx bxs-user-check nav_icon my-auto bx-md bx-light'></i>
             </div>
             <div class="col-8 center-block">
-                <h5 class="fs-6 text-muted mt-3">Total Pelanggaran</h5>
+                <h5 class="fs-6 text-muted mt-3">Total Pelapor</h5>
                 <p class="fs-5 fw-bold">102</p>
             </div>
         </div>

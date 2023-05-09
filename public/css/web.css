@@ -103,7 +103,7 @@ a {
     margin-bottom: 1.5rem;
     transition: 0.3s;
 }
-.nav_link:hover {
+.nav_link:hover, .active {
     color: var(--biru-tua);
 }
 .nav_profile{
@@ -112,14 +112,11 @@ a {
 .nav_icon {
     font-size: 1.25rem;
 }
-.show {
+.show-nav {
     left: 0;
 }
 .body-pd {
     padding-left: calc(var(--nav-width) + 1rem);
-}
-.active {
-    color: var(--white-color);
 }
 .active::before {
     content: "";
@@ -153,7 +150,7 @@ a {
         left: 0;
         padding: 1rem 1rem 0 0;
     }
-    .show {
+    .show-nav {
         width: calc(var(--nav-width) + 156px);
     }
     .body-pd {
