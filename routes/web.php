@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StatistikController;
@@ -40,6 +41,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store')->middleware('checkLevel:admin');
     Route::delete('/kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('kategori.delete')->middleware('checkLevel:admin');
     Route::put('/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.put')->middleware('checkLevel:admin');
+
+    // Kelas
+    Route::get('/kelas', [KelasController::class, 'index'])->name('kelas')->middleware('checkLevel:admin');
+    Route::post('/kelas/store', [KelasController::class, 'store'])->name('kelas.store')->middleware('checkLevel:admin');
+    Route::delete('/kelas/delete/{id}', [KelasController::class, 'destroy'])->name('kelas.delete')->middleware('checkLevel:admin');
+    Route::put('/kelas/update/{id}', [KelasController::class, 'update'])->name('kelas.put')->middleware('checkLevel:admin');
 
     // Users
     Route::get('/users', [HomeController::class, 'index'])->name('users')->middleware('checkLevel:admin');

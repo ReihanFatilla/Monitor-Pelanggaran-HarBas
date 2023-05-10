@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Siswa;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Ramsey\Uuid\Type\Integer;
@@ -23,11 +24,9 @@ class PelanggaranFactory extends Factory
 
         return [
             'id_kategori' => rand(1, 5),
-            'nisn' => $faker->unique()->numberBetween(1000000000, 9999999999),
-            'nama' => $faker->name,
-            'kelas' => rand(10, 12).Str::random(1),
-            'catatan' => $faker->sentence,
+            'id_siswa' => Siswa::all()->random()->id,
             'pelapor' => $faker->name,
+            'catatan' => $faker->sentence,
             'created_at' => $fakeDate,
             'updated_at' => $fakeDate
         ];

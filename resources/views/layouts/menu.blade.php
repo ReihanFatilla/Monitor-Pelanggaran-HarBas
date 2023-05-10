@@ -18,6 +18,11 @@
     <span class="nav_name">Kategori</span> 
 </a>
 
+<a href="/kelas" class="nav_link {{ Request::is('kelas') ? 'active' : '' }}"> 
+    <i class='bx bx-door-open nav_icon ' size='lg'></i> 
+    <span class="nav_name">Kelas</span> 
+</a>
+
 <a href="/pelanggaran" class="nav_link {{ Request::is('pelanggaran') ? 'active' : '' }}"> 
     <i class='bx bx-receipt nav_icon}' size='lg'></i> 
     <span class="nav_name">Pelanggaran</span> 

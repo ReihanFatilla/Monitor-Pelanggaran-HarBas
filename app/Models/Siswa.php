@@ -16,4 +16,12 @@ class Siswa extends Model
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
     }
+
+    public function pelanggaran(){
+        return $this->hasOne(Siswa::class, 'id_siswa', 'id');
+    }
+
+    public function kelas(){
+        return $this->belongsTo(Kelas::class, 'id_kelas', 'id');
+    }
 }
