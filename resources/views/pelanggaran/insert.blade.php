@@ -10,18 +10,16 @@
                 <div class="card-header fw-semibold text-center">Input Pelanggaran</div>
 
                 <div class="card-body">
-
-                    <form action="#" method="post" class="m-3">
-
+                    <form method="post" action="{{route('pelanggaran.store')}}" class="m-3">
+                        @csrf
                         <div class="row">
-
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Kelas</label>
-                                    <select id="kelas-select" class="form-select" aria-label="Default select example">
+                                    <select name="id_kelas" id="kelas-select" class="form-select" aria-label="Default select example">
                                         <option selected>Pilih Kelas</option>
                                         @foreach($kelas as $kelas)
-                                        <option value="{{$kelas}}">{{$kelas}}</option>
+                                        <option value="{{$kelas->id}}">{{$kelas->nama}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -30,7 +28,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Kategori</label>
-                                    <select id="kategori-select" class="form-select" aria-label="Default select example">
+                                    <select name="id_kategori" id="kategori-select" class="form-select" aria-label="Default select example">
                                         <option selected>Pilih Kategori</option>
                                         @foreach($kategori as $kategori)
                                         <option value="{{$kategori->id}}">{{$kategori->nama_kategori}}</option>
@@ -46,7 +44,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
-                                    <select disabled id='nama-select' class="form-select" aria-label="Default select example">
+                                    <select name="id_siswa" disabled id='nama-select' class="form-select" aria-label="Default select example">
                                         <option selected>Pilih Kelas Terlebih Dahulu</option>
                                     </select>
                                 </div>
@@ -65,10 +63,10 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Pelapor</label>
-                                    <select id="guru-select" class="form-select" aria-label="Default select example">
+                                    <select name="id_user_pelapor" id="guru-select" class="form-select" aria-label="Default select example">
                                         <option selected>Pilih Guru</option>
                                         @foreach($guru as $guru)
-                                        <option value="{{$guru}}">{{$guru}}</option>
+                                        <option value="{{$guru->id}}">{{$guru->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -81,7 +79,7 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Catatan</label>
-                                    <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px"></textarea>
+                                    <textarea name="catatan" class="form-control" placeholder="Leave a comment here" style="height: 100px"></textarea>
                                 </div>
                             </div>
 
@@ -111,6 +109,7 @@
             $('#nama-select').removeAttr("disabled")
 
             var selectedKelas = $(this).children("option:selected").val();
+
             $('#nisn-form').val('NISN akan terisi automatis')
             console.log(selectedKelas)
 
@@ -128,8 +127,8 @@
                     var namaHtml = function(){
                         var listNama = []
                         listNama.push(`<option selected>Pilih Nama</option>`)
-                        response.nama.forEach(element => {
-                            listNama.push(`<option value="${element}">${element}</option>`)
+                        response.siswa.forEach(element => {
+                            listNama.push(`<option value="${element.id}">${element.user.name}</option>`)
                     })
                         return listNama
                     }
@@ -143,7 +142,7 @@
         })
 
         $('#nama-select').change(function() {
-            var selectedName = $(this).children("option:selected").val();
+            var selectedNameId = $(this).children("option:selected").val();
 
             if($(this).find('option:first').val() == 'Pilih Nama'){
                 $(this).find('option:first').remove();
@@ -153,7 +152,7 @@
                 url: "/get-nisn",
                 type: "GET",
                 data: {
-                    name: selectedName
+                    id: selectedNameId
                 },
                 success: function(response) {
                     $('#nisn-form').val(response.nisn);

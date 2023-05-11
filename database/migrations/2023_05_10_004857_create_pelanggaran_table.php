@@ -17,8 +17,9 @@ class CreatePelanggaranTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_kategori');
             $table->unsignedBigInteger('id_siswa');
+            $table->unsignedBigInteger('id_user_pelapor');
             $table->foreign('id_siswa')->references('id')->on('siswa')->onDelete('cascade');
-            $table->string('pelapor');
+            $table->foreign('id_user_pelapor')->references('id')->on('users')->onDelete('cascade');
             $table->string('catatan');
             $table->timestamps();
         });

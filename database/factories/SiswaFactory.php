@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Kelas;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
@@ -17,7 +18,7 @@ class SiswaFactory extends Factory
     {
         return [
             'id_user' => User::factory()->create(['level' => 'siswa'])->id,
-            'id_kelas' => rand(1, 2),
+            'id_kelas' => Kelas::all()->random()->id,
             'nisn' => rand(1000000000, 9999999999),
         ];
     }

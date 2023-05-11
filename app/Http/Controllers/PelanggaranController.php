@@ -13,16 +13,29 @@ class PelanggaranController extends Controller
 {
     public function index()
     {
-        $pelanggaran = Pelanggaran::with('kategori')->get();
+        $pelanggaran = Pelanggaran::with('kategori', 'pelapor', 'siswa.user', 'siswa.kelas')->get();
 
         return view('pelanggaran.index', compact('pelanggaran'));
+    }
+
+    public function store(Request $request)
+    {
+
+        $pelanggaran = new Pelanggaran();
+        $pelanggaran->id_kategori = $request->id_kategori;
+        $pelanggaran->id_siswa = $request->id_siswa;
+        $pelanggaran->id_user_pelapor = $request->id_user_pelapor;
+        $pelanggaran->catatan = $request->catatan;
+        $pelanggaran->save();
+
+        return redirect('/input-pelanggaran');
     }
 
     public function view_input()
     {
         $kategori = Kategori::all();
-        $kelas = Kelas::pluck('nama');
-        $guru = User::where('level', 'guru')->pluck('name');
+        $kelas = Kelas::all();
+        $guru = User::where('level', 'guru')->get();
         $nama = Siswa::with('user')->get()->map(function ($item) {
             return $item->user->name;
         });
@@ -32,8 +45,8 @@ class PelanggaranController extends Controller
 
     public function get_nisn(Request $request)
     {
-        $name = $request->input('name');
-        $user = Siswa::where('id_user', User::where('name', $name)->first()->id)->first();
+        $id = $request->input('id');
+        $user = Siswa::where('id', $id)->first();
         $nisn = $user->nisn;
 
         return response()->json(['nisn' => $nisn]);
@@ -42,10 +55,8 @@ class PelanggaranController extends Controller
     public function get_nama_by_kelas(Request $request)
     {
         $kelas = $request->input('kelas');
-        $nama = Siswa::where('id_kelas', Kelas::where('nama', $kelas)->first()->id)->get()->map(function ($item) {
-            return $item->user->name;
-        });
+        $siswa = Siswa::with('user')->where('id_kelas', Kelas::where('id', $kelas)->first()->id)->get();
 
-        return response()->json(['nama' => $nama]);
+        return response()->json(['siswa' => $siswa]);
     }
 }

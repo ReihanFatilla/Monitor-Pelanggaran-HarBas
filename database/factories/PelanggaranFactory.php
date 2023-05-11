@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Kategori;
 use App\Models\Siswa;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Ramsey\Uuid\Type\Integer;
@@ -23,9 +25,9 @@ class PelanggaranFactory extends Factory
         $fakeDate = $faker->dateTimeBetween('-2 months', '+2 months');
 
         return [
-            'id_kategori' => rand(1, 5),
+            'id_kategori' => Kategori::all()->random()->id,
             'id_siswa' => Siswa::all()->random()->id,
-            'pelapor' => $faker->name,
+            'id_user_pelapor' => User::where('level', 'guru')->get()->random()->id,
             'catatan' => $faker->sentence,
             'created_at' => $fakeDate,
             'updated_at' => $fakeDate

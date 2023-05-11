@@ -3,52 +3,22 @@
 @section('content')
 <div class="card-custom shadow-lg m-1 p-5">
     <div class="table-responsive">
-        <table id="pelanggaran-table" class="hover custom-table" style="width: 100%;">
+        <table id="pelanggaran-table" class="table custom-table table-striped table-bordered table-hover" style="width: 100%;">
         </table>
     </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
+<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
 <script>
     var listPelanggaran = @json($pelanggaran);
-    console.log(listPelanggaran)
-
-    function format(d) {
-        return (
-            '<div class="slider">'+
-            '<table style="table" style="padding-left:50px;">' +
-            '<tr>' +
-            '<td>Dilaporkan Oleh:</td>' +
-            '</td>' +
-            '<td>' +
-            d.pelapor +
-            '</td>' +
-            '</tr>' +
-            '<tr>' +
-            '<td>NISN:</td>' +
-            '<td>' +
-            d.nisn +
-            '</td>' +
-            '</tr>' +
-            '<tr>' +
-            '<td>Action:</td>' +
-            '<td>' +
-            "<div class='row d-flex justify-content-center'>" +
-            "<div class='col-6'>" +
-            '<button type="button" class="btn btn-primary">Edit</button>' +
-            '</div>' +
-            "<div class='col-6'>" +
-            '<button type="button" class="btn btn-danger">Delete</button>' +
-            '</div>' +
-            '</div>' +
-            '</td>' +
-            '</tr>' +
-            '</table>'+
-            '</div>'
-        );
-    }
 
     $(document).ready(function() {
         var pelanggaranTable = $('#pelanggaran-table').DataTable({
@@ -56,21 +26,14 @@
             data: listPelanggaran,
             columns: [
                 {
-                    title: 'No',
-                    data: 'id'
-                },
-                {
                     title: 'Nama',
-                    data: 'nama'
+                    data: 'siswa.user.name'
                 },
                 {
                     title: 'Kelas',
-                    data: 'kelas'
+                    data: 'siswa.kelas.nama'
                 },
-                {
-                    title: 'Tanggal',
-                    data: 'created_at'
-                },
+                
                 {
                     title: 'Jenis Pelanggaran',
                     data: 'kategori.nama_kategori'
@@ -78,6 +41,14 @@
                 {
                     title: 'Catatan',
                     data: 'catatan'
+                },
+                {
+                    title: 'Tanggal',
+                    data: 'created_at',
+                    render: function(data, type, row){
+                        moment.locale('id');
+                        return moment(data).format("ddd, DD MMM YYYY | HH:mm");
+                    }
                 },
             ],
         });
@@ -88,7 +59,7 @@
 
             if (row.child.isShown()) {
                 // This row is already open - close it
-                $('div.slider', row.child()).slideUp(function () {
+                $('div.slider', row.child()).slideUp(function() {
                     row.child.hide();
                 });
             } else {
