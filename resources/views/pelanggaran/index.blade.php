@@ -3,7 +3,7 @@
 @section('content')
 <div class="card-custom shadow-lg m-1 p-5">
     <div class="table-responsive">
-        <table id="pelanggaran-table" class="hover" style="width: 100%;">
+        <table id="pelanggaran-table" class="hover custom-table" style="width: 100%;">
         </table>
     </div>
 </div>

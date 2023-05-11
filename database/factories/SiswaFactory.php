@@ -16,9 +16,9 @@ class SiswaFactory extends Factory
     public function definition()
     {
         return [
-            'id_user' => User::factory()->create()->id,
+            'id_user' => User::factory()->create(['level' => 'siswa'])->id,
+            'id_kelas' => rand(1, 2),
             'nisn' => rand(1000000000, 9999999999),
-            'kelas' => rand(10, 12).Arr::random(['A', 'B', 'C', 'D']),
         ];
     }
 }

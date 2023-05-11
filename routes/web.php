@@ -3,11 +3,13 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\PelanggaranController;
 use App\Http\Controllers\InputPelanggaranController;
+use App\Http\Controllers\UserController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -41,8 +43,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('kategori.delete')->middleware('checkLevel:admin');
     Route::put('/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.put')->middleware('checkLevel:admin');
 
+    // Kelas
+    Route::get('/kelas', [KelasController::class, 'index'])->name('kelas')->middleware('checkLevel:admin');
+    Route::post('/kelas/store', [KelasController::class, 'store'])->name('kelas.store')->middleware('checkLevel:admin');
+    Route::delete('/kelas/delete/{id}', [KelasController::class, 'destroy'])->name('kelas.delete')->middleware('checkLevel:admin');
+    Route::put('/kelas/update/{id}', [KelasController::class, 'update'])->name('kelas.put')->middleware('checkLevel:admin');
+
     // Users
-    Route::get('/users', [HomeController::class, 'index'])->name('users')->middleware('checkLevel:admin');
+    Route::get('/users', [UserController::class, 'index'])->name('users')->middleware('checkLevel:admin');
+    Route::put('/users/delete/{id}', [UserController::class, 'destroy'])->name('users.delete')->middleware('checkLevel:admin');
+    Route::put('/users/update/{id}', [UserController::class, 'update'])->name('users.put')->middleware('checkLevel:admin');
+    Route::put('/users/updaterole/{id}', [UserController::class, 'update_role'])->name('users.updaterole')->middleware('checkLevel:admin');
 
     // Statistik
     Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');

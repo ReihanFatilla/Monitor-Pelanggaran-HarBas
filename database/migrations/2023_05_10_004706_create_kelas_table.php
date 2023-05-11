@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RemoveFotoColumnAtPelanggaran extends Migration
+class CreateKelasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class RemoveFotoColumnAtPelanggaran extends Migration
      */
     public function up()
     {
-        Schema::table('pelanggaran', function (Blueprint $table) {
-            $table->dropColumn('foto');
+        Schema::create('kelas', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +27,6 @@ class RemoveFotoColumnAtPelanggaran extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('kelas');
     }
 }

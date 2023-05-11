@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(20)->create();
+        User::factory(20)->create(['level' => 'guru']);
 
         // DB::table('users')->insert([
         //     'name' => 'admin',
