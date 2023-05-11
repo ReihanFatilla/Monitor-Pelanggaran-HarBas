@@ -9,7 +9,7 @@
             <button type="submit" class="btn btn-primary" style="background-color: #009879;">Tambah</button>
         </div>
     </form>
-    <table id="kelas-table" class="table table-striped table-bordered table-hover" style="width: 100%;">
+    <table id="kelas-table" class="table custom-table table-striped table-bordered table-hover" style="width: 100%;">
     </table>
 </div>
 
@@ -62,31 +62,13 @@
                                     </li>
                                 </ul>
                             </div>
-                            
-                            <div class="modal fade" id="exampleModal${row.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <form action="/kelas/update/${row.id}" method="post">
-                                            @csrf
-                                            @method('PUT')
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="mb-3">
-                                                    <label for="kelas-input-edit" class="form-label">Category</label>
-                                                    <input type="text" value="${row.nama}" name="nama" class="form-control" aria-describedby="emailHelp">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Update Category</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>`;
+
+                            <x-modal id="${row.id}" title="Edit Category" formAction="/kelas/update/${row.id}" submitLabel="Update Category">
+                    <div class="mb-3">
+                            <label for="kategori-input-edit" class="form-label">Category</label>
+                            <input type="text" value="${row.nama}" name="nama_kategori" class="form-control" aria-describedby="emailHelp">
+                    </div>
+                </x-modal>`;
                 }
             }]
         });

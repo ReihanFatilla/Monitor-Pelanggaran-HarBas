@@ -112,6 +112,7 @@
 
             var selectedKelas = $(this).children("option:selected").val();
             $('#nisn-form').val('NISN akan terisi automatis')
+            console.log(selectedKelas)
 
             if($(this).find('option:first').val() == 'Pilih Kelas'){
                 $(this).find('option:first').remove();

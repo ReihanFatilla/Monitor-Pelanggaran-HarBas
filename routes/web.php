@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\PelanggaranController;
 use App\Http\Controllers\InputPelanggaranController;
+use App\Http\Controllers\UserController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -49,7 +50,10 @@ Route::middleware('auth')->group(function () {
     Route::put('/kelas/update/{id}', [KelasController::class, 'update'])->name('kelas.put')->middleware('checkLevel:admin');
 
     // Users
-    Route::get('/users', [HomeController::class, 'index'])->name('users')->middleware('checkLevel:admin');
+    Route::get('/users', [UserController::class, 'index'])->name('users')->middleware('checkLevel:admin');
+    Route::put('/users/delete/{id}', [UserController::class, 'destroy'])->name('users.delete')->middleware('checkLevel:admin');
+    Route::put('/users/update/{id}', [UserController::class, 'update'])->name('users.put')->middleware('checkLevel:admin');
+    Route::put('/users/updaterole/{id}', [UserController::class, 'update_role'])->name('users.updaterole')->middleware('checkLevel:admin');
 
     // Statistik
     Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');
