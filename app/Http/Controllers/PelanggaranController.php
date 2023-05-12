@@ -13,7 +13,7 @@ class PelanggaranController extends Controller
 {
     public function index()
     {
-        $pelanggaran = Pelanggaran::with('kategori', 'pelapor', 'siswa.user', 'siswa.kelas')->get();
+        $pelanggaran = Pelanggaran::with('kategori', 'pelapor', 'siswa.user', 'siswa.kelas')->orderBy('created_at', 'desc')->get();
 
         return view('pelanggaran.index', compact('pelanggaran'));
     }
@@ -59,4 +59,5 @@ class PelanggaranController extends Controller
 
         return response()->json(['siswa' => $siswa]);
     }
+
 }

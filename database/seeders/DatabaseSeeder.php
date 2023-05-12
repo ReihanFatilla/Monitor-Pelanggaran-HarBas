@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             KelasSeeder::class,
             SiswaSeeder::class,
-            // PelanggaranSeeder::class
+            PelanggaranSeeder::class
         ]);
     }
 }

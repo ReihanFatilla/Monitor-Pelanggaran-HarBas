@@ -10,12 +10,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
-<script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
     var listPelanggaran = @json($pelanggaran);
@@ -24,7 +19,10 @@
         var pelanggaranTable = $('#pelanggaran-table').DataTable({
             pagingType: 'simple_numbers',
             data: listPelanggaran,
-            columns: [
+            columns: [{
+                    title: 'Nisn',
+                    data: 'siswa.nisn'
+                },
                 {
                     title: 'Nama',
                     data: 'siswa.user.name'
@@ -33,9 +31,8 @@
                     title: 'Kelas',
                     data: 'siswa.kelas.nama'
                 },
-                
                 {
-                    title: 'Jenis Pelanggaran',
+                    title: 'Kategori',
                     data: 'kategori.nama_kategori'
                 },
                 {
@@ -45,11 +42,11 @@
                 {
                     title: 'Tanggal',
                     data: 'created_at',
-                    render: function(data, type, row){
+                    render: function(data, type, row) {
                         moment.locale('id');
                         return moment(data).format("ddd, DD MMM YYYY | HH:mm");
-                    }
-                },
+                    },
+                }
             ],
         });
 
