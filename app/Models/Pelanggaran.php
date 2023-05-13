@@ -18,7 +18,11 @@ class Pelanggaran extends Model
         return $this->belongsTo(Kategori::class, 'id_kategori', 'id');
     }
 
+    public function pelapor(){
+        return $this->belongsTo(Kategori::class, 'id_pelapor_user', 'id');
+    }
+
     public function siswa(){
-        return $this->belongsTo(Siswa::class);
+        return $this->belongsTo(Siswa::class, 'id_siswa', 'id');
     }
 }

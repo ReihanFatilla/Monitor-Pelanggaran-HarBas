@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Siswa;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -64,10 +65,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $user = new User;
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->level = 'guru';
+        $user->password = Hash::make($data['password']);
+
+        $user->save();
+
+        $siswa = new Siswa();
+        $siswa->id_user = $user->id;
+        $siswa->id_kelas = $data['id_kelas'];
+        $siswa->nisn = $data['nisn'];
+
+        $siswa->save();
+
+        return redirect()->route('login');
     }
 }

@@ -18,7 +18,7 @@ class Siswa extends Model
     }
 
     public function pelanggaran(){
-        return $this->hasOne(Siswa::class, 'id_siswa', 'id');
+        return $this->hasMany(Siswa::class, 'id_siswa', 'id');
     }
 
     public function kelas(){

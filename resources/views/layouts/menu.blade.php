@@ -8,6 +8,15 @@
     <span class="nav_name">Statistika</span> 
 </a>
 
+<a href="/pelanggaran" class="nav_link {{ Request::is('pelanggaran') ? 'active' : '' }}"> 
+    <i class='bx bx-receipt nav_icon}' size='lg'></i> 
+    <span class="nav_name">Pelanggaran</span> 
+</a>
+<a href="/input-pelanggaran" class="nav_link {{ Request::is('input-pelanggaran') ? 'active' : '' }}"> 
+    <i class='bx bx-check-circle nav_icon'></i> 
+    <span class="nav_name">Input Pelanggaran</span> 
+</a>
+
 <a href="/users" class="nav_link {{ Request::is('users') ? 'active' : '' }}"> 
     <i class='bx bx-group nav_icon ' size='lg'></i> 
     <span class="nav_name">Users</span> 
@@ -23,14 +32,6 @@
     <span class="nav_name">Kelas</span> 
 </a>
 
-<a href="/pelanggaran" class="nav_link {{ Request::is('pelanggaran') ? 'active' : '' }}"> 
-    <i class='bx bx-receipt nav_icon}' size='lg'></i> 
-    <span class="nav_name">Pelanggaran</span> 
-</a>
-<a href="/input-pelanggaran" class="nav_link {{ Request::is('input-pelanggaran') ? 'active' : '' }}"> 
-    <i class='bx bx-check-circle nav_icon'></i> 
-    <span class="nav_name">Input Pelanggaran</span> 
-</a>
 @endif
 
 @if(auth() -> user() -> level == 'siswa' || auth() -> user() -> level == 'guru')
