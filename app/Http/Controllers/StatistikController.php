@@ -12,18 +12,25 @@ class StatistikController extends Controller
     public function index()
     {
 
-        $kelas10Tahun = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
-            ->where('kelas', 'LIKE', '%10%')
+        $kelas10Tahun = Pelanggaran::whereHas('siswa', function($siswa){
+            $siswa->whereHas('kelas', function($kelas){
+                $kelas->where('nama', 'LIKE', '%10%');
+            });
+        })->select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
             ->groupBy(DB::raw("Month(created_at)"))
             ->pluck('count');
 
-        $kelas11Tahun = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
-            ->where('kelas', 'LIKE', '%11%')
+        $kelas11Tahun = Pelanggaran::whereHas('siswa', function($siswa){
+            $siswa->whereHas('kelas', function($kelas){
+                $kelas->where('nama', 'LIKE', '%11%');
+            });
+        })->select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
             ->groupBy(DB::raw("Month(created_at)"))
             ->pluck('count');
 
-        $kelas12Tahun = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
-            ->where('kelas', 'LIKE', '%12%')
+        $kelas12Tahun = Pelanggaran::with(['siswa.kelas' => function ($query) {
+            $query->where('nama', 'LIKE', '%12%');
+        }])->select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
             ->groupBy(DB::raw("Month(created_at)"))
             ->pluck('count');
 
@@ -39,34 +46,42 @@ class StatistikController extends Controller
             ->groupBy(DB::raw("Date(created_at)"))
             ->pluck('date');
 
-        $kelas10Tanggal = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
-            ->where('kelas', 'LIKE', '%10%')
+        $kelas10Tanggal = Pelanggaran::with(['siswa.kelas' => function ($query) {
+            $query->where('nama', 'LIKE', '%10%');
+        }])->select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
             ->whereMonth('created_at', Carbon::now()->month)
             ->groupBy(DB::raw("Date(created_at)"))
             ->pluck('count');
 
-        $kelas11Tanggal = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
-            ->where('kelas', 'LIKE', '%11%')
+        $kelas11Tanggal = Pelanggaran::with(['siswa.kelas' => function ($query) {
+            $query->where('nama', 'LIKE', '%11%');
+
+        }])->select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
             ->whereMonth('created_at', Carbon::now()->month)
             ->groupBy(DB::raw("Date(created_at)"))
             ->pluck('count');
 
-        $kelas12Tanggal = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
-            ->where('kelas', 'LIKE', '%12%')
+        $kelas12Tanggal = Pelanggaran::with(['siswa.kelas' => function ($query) {
+            $query->where('nama', 'LIKE', '%12%');
+
+        }])->select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
             ->whereMonth('created_at', Carbon::now()->month)
             ->groupBy(DB::raw("Date(created_at)"))
             ->pluck('count');
 
-        $totalKelas10 = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
-            ->where('kelas', 'LIKE', '%10%')
+        $totalKelas10 = Pelanggaran::with(['siswa.kelas' => function ($query) {
+            $query->where('nama', 'LIKE', '%10%');
+        }])->select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
             ->count();
 
-        $totalKelas11 = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
-            ->where('kelas', 'LIKE', '%11%')
+        $totalKelas11 = Pelanggaran::with(['siswa.kelas' => function ($query) {
+            $query->where('nama', 'LIKE', '%11%');
+        }])->select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
             ->count();
 
-        $totalKelas12 = Pelanggaran::select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
-            ->where('kelas', 'LIKE', '%12%')
+        $totalKelas12 = Pelanggaran::with(['siswa.kelas' => function ($query) {
+            $query->where('nama', 'LIKE', '%12%');
+        }])->select(DB::raw("COUNT(*) as count"), DB::raw("DATE(created_at) as date"))
             ->count();
 
 

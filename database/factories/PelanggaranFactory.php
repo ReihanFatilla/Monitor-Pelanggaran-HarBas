@@ -22,7 +22,7 @@ class PelanggaranFactory extends Factory
 
         $faker = Faker::create('id_ID');
 
-        $fakeDate = $faker->dateTimeBetween('-1 weeks', '+1 weeks');
+        $fakeDate = $faker->dateTimeBetween('-3 weeks', '+2 weeks');
 
         return [
             'id_kategori' => Kategori::all()->random()->id,

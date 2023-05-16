@@ -73,13 +73,10 @@ class RegisterController extends Controller
 
         $user->save();
 
-        $siswa = new Siswa();
-        $siswa->id_user = $user->id;
-        $siswa->id_kelas = $data['id_kelas'];
-        $siswa->nisn = $data['nisn'];
-
-        $siswa->save();
-
-        return redirect()->route('login');
+        return Siswa::create([
+            'id_user' => $user->id,
+            'id_kelas' => $data['id_kelas'],
+            'nisn' => $data['nisn'],
+        ]);
     }
 }

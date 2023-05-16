@@ -58,6 +58,8 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input hide id="password-confirm" type="password" class="form-control" name="id_kelas" value="1" required autocomplete="new-password">
+                                <input hide id="password-confirm" type="password" class="form-control" name="nisn" value="28492858382" required autocomplete="new-password">
                             </div>
                         </div>
 

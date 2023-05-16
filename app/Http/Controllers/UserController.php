@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Kelas;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -15,8 +17,9 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+        $kelas = Kelas::all();
 
-        return view('users.index', compact('users'));
+        return view('users.index', compact('users', 'kelas'));
     }
 
     /**
@@ -71,16 +74,30 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
     }
 
     public function update_role(Request $request, $id)
     {
+
         $user = User::find($id);
+
+        if ($request->input('level') == 'siswa') {
+            $siswa = new Siswa;
+            $siswa->id_user = $id;
+            $siswa->nisn = $request->input('nisn');
+            $siswa->id_kelas = $request->input('id_kelas');
+            $siswa->save();
+        } else if($request->input('currentLevel') == "siswa"){
+            $siswa = Siswa::where('id_user', $id)
+            ->first();
+            $siswa->delete();
+        }
+
         $user->level = $request->input('level');
+
         $user->save();
 
-        return response()->json(['status' => 'success']);
+        return response()->json(['status' => 'success', 'level' => $user->level]);
     }
 
     /**

@@ -22,11 +22,13 @@
     $(document).ready(function() {
         var pelanggaranTable = $('#kelas-table').DataTable({
             pagingType: 'simple_numbers',
+            order: [],
             responsive: true,
             data: listKelas,
             columns: [{
                     title: 'No',
-                    data: 'id'
+                    data: 'id',
+                    orderable: false
                 },
                 {
                     title: 'Nama Kelas',
