@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Models\Siswa;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Models\Kelas;
+use App\Models\Siswa;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -42,6 +43,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        $kelas = Kelas::all();
+        return view('auth.register', compact('kelas'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -68,15 +75,16 @@ class RegisterController extends Controller
         $user = new User;
         $user->name = $data['name'];
         $user->email = $data['email'];
-        $user->level = 'guru';
+        $user->level = 'siswa';
         $user->password = Hash::make($data['password']);
 
         $user->save();
 
-        return Siswa::create([
-            'id_user' => $user->id,
+        $user->siswa()->create([
             'id_kelas' => $data['id_kelas'],
             'nisn' => $data['nisn'],
         ]);
+
+        return $user;
     }
 }

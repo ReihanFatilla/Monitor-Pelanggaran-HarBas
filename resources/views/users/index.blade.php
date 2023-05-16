@@ -74,7 +74,18 @@
                                         </form>
                                     </li>
                                 </ul>
-                            </div>`;
+                            </div>
+                            
+                            <x-modal id="${row.id}" title="Edit Category" formAction="/kelas/update/${row.id}" submitLabel="Update Category">
+                    <div class="mb-3">
+                            <label for="kategori-input-edit" class="form-label">Category</label>
+                            <input type="text" value="${row.nama}" name="nama_kategori" class="form-control" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                            <label for="kategori-input-edit" class="form-label">Category</label>
+                            <input type="text" value="${row.nama}" name="nama_kategori" class="form-control" aria-describedby="emailHelp">
+                    </div>
+                </x-modal>`;
                 }
             }]
         });
