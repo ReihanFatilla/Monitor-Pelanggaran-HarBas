@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -16,15 +17,15 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(20)->create(['level' => 'guru']);
+        User::factory(42)->create(['level' => 'guru']);
 
-        // DB::table('users')->insert([
-        //     'name' => 'admin',
-        //     'email' => 'admin@admin',
-        //     'level' => 'admin',
-        //     'email_verified_at' => now(),
-        //     'password' => 'admin123',
-        //     'remember_token' => Str::random(10),
-        // ]);
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin@admin',
+            'level' => 'admin',
+            'email_verified_at' => now(),
+            'password' => Hash::make('admin123'),
+            'remember_token' => Str::random(10),
+        ]);
     }
 }
