@@ -42,7 +42,12 @@
                 {
                     title: 'Catatan',
                     data: 'catatan',
-                    orderable: false
+                    orderable: false,
+                    render: function(data, type, row) {
+                        var maxLength = 40;
+                        var truncatedString = data.length > maxLength ? data.substr(0, maxLength - 3) + '...' : data;
+                        return truncatedString;
+                    }
                 },
                 {
                     title: 'Tanggal',
