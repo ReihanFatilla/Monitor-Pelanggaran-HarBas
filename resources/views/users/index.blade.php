@@ -76,14 +76,10 @@
                                 </ul>
                             </div>
                             
-                            <x-modal id="${row.id}" title="Edit Category" formAction="/kelas/update/${row.id}" submitLabel="Update Category">
+                            <x-modal id="${row.id}" title="Edit User" formAction="/users/update/${row.id}" submitLabel="Update User">
                     <div class="mb-3">
-                            <label for="kategori-input-edit" class="form-label">Category</label>
-                            <input type="text" value="${row.nama}" name="nama_kategori" class="form-control" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                            <label for="kategori-input-edit" class="form-label">Category</label>
-                            <input type="text" value="${row.nama}" name="nama_kategori" class="form-control" aria-describedby="emailHelp">
+                            <label for="kategori-input-edit" class="form-label">Name</label>
+                            <input type="text" value="${row.name}" name="name" class="form-control" aria-describedby="emailHelp">
                     </div>
                 </x-modal>`;
                 }
