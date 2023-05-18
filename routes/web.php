@@ -10,6 +10,7 @@ use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\PelanggaranController;
 use App\Http\Controllers\InputPelanggaranController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SiswaController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -65,3 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/get-nisn', [PelanggaranController::class, 'get_nisn'])->middleware('checkLevel:admin, guru');
     Route::get('/get-nama-by-kelas', [PelanggaranController::class, 'get_nama_by_kelas'])->middleware('checkLevel:admin, guru');
 });
+
+    // Siswa
+    // Route::get('/detail/siswa', [SiswaController::class, 'index'])->name('siswa')->middleware('checkLevel:siswa');
+    Route::get('/detail/siswa', [SiswaController::class, 'detail'])->name('siswa')->middleware('checkLevel:siswa');

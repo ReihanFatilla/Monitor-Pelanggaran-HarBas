@@ -5,7 +5,7 @@
     <form method="post" action="{{route('kelas.store')}}">
         @csrf
         <div class="mb-3 d-flex w-50 gap-3 align-items-center">
-            <input type="text" name="nama" class="form-control" placeholder="ex: Perkelahian">
+            <input type="text" name="nama" class="form-control" placeholder="ex: Kelas">
             <button type="submit" class="btn btn-primary" style="background-color: #009879;">Tambah</button>
         </div>
     </form>

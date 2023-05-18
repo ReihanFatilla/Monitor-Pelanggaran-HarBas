@@ -31,7 +31,7 @@
                     </div>
                 </div> <a href="#" class="nav_link">
                     <i class='bx bx-user-circle nav_icon bxs-lg'></i>
-                    <span class="nav_name">Reihan Fatilla</span>
+                    <span class="nav_name">{{Auth::user()->name}}</span>
 
                 </a>
                 <li class="nav-item">

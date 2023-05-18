@@ -75,8 +75,8 @@ class RegisterController extends Controller
 
         $siswa = new Siswa();
         $siswa->id_user = $user->id;
-        $siswa->id_kelas = $data['id_kelas'];
-        $siswa->nisn = $data['nisn'];
+        // $siswa->id_kelas = $data['id_kelas'];
+        // $siswa->nisn = $data['nisn'];
 
         $siswa->save();
 
