@@ -18,6 +18,7 @@
     $(document).ready(function() {
         var pelanggaranTable = $('#pelanggaran-table').DataTable({
             pagingType: 'simple_numbers',
+            order: [],
             data: listPelanggaran,
             columns: [{
                     title: 'Nisn',
@@ -25,23 +26,33 @@
                 },
                 {
                     title: 'Nama',
-                    data: 'siswa.user.name'
+                    data: 'siswa.user.name',
+                    orderable: false
                 },
                 {
                     title: 'Kelas',
-                    data: 'siswa.kelas.nama'
+                    data: 'siswa.kelas.nama',
+                    orderable: false
                 },
                 {
                     title: 'Kategori',
-                    data: 'kategori.nama_kategori'
+                    data: 'kategori.nama_kategori',
+                    orderable: false
                 },
                 {
                     title: 'Catatan',
-                    data: 'catatan'
+                    data: 'catatan',
+                    orderable: false,
+                    render: function(data, type, row) {
+                        var maxLength = 40;
+                        var truncatedString = data.length > maxLength ? data.substr(0, maxLength - 3) + '...' : data;
+                        return truncatedString;
+                    }
                 },
                 {
                     title: 'Tanggal',
                     data: 'created_at',
+                    orderable: false,
                     render: function(data, type, row) {
                         moment.locale('id');
                         return moment(data).format("ddd, DD MMM YYYY | HH:mm");

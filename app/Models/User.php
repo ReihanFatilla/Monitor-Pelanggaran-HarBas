@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'level',
     ];
 
     /**
@@ -44,6 +45,6 @@ class User extends Authenticatable
     ];
 
     public function siswa(){
-        return $this->hasOne(Siswa::class);
+        return $this->hasOne(Siswa::class, 'id_user', 'id');
     }
 }
