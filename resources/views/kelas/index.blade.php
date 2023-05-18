@@ -22,11 +22,13 @@
     $(document).ready(function() {
         var pelanggaranTable = $('#kelas-table').DataTable({
             pagingType: 'simple_numbers',
+            order: [],
             responsive: true,
             data: listKelas,
             columns: [{
                     title: 'No',
-                    data: 'id'
+                    data: 'id',
+                    orderable: false
                 },
                 {
                     title: 'Nama Kelas',
@@ -63,7 +65,7 @@
                                 </ul>
                             </div>
 
-                            <x-modal id="${row.id}" title="Edit Category" formAction="/kelas/update/${row.id}" submitLabel="Update Category">
+                            <x-modal id="${row.id}" title="Edit Category" formAction="/kelas/update/${row.id}" submitLabel="Update Kelas">
                     <div class="mb-3">
                             <label for="kategori-input-edit" class="form-label">Category</label>
                             <input type="text" value="${row.nama}" name="nama_kategori" class="form-control" aria-describedby="emailHelp">

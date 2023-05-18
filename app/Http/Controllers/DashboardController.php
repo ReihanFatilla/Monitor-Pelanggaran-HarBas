@@ -7,6 +7,7 @@ use App\Models\Siswa;
 use App\Models\Pelanggaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -29,14 +30,12 @@ class DashboardController extends Controller
 
             $labelPerDayWeekly = Pelanggaran::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
             ->selectRaw('count(id) as total, dayname(created_at) as day')
-            ->orderByRaw('DAY("created_at")')
-            ->groupBy('day')
+            ->groupBy(DB::raw("DAY(created_at)"))
             ->pluck("day");
 
             $totalPerDayWeekly = Pelanggaran::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
             ->selectRaw('count(id) as total, dayname(created_at) as day')
-            ->orderByRaw('DAY("created_at")')
-            ->groupBy('day')
+            ->groupBy(DB::raw("DAY(created_at)"))
             ->pluck("total");
 
         return view('dashboard.index', compact('totalPelanggaran', 'totalPelanggar', 'totalGuru', 'totalSiswa', 'pelanggarTerbanyak', 'totalPerDayWeekly', 'labelPerDayWeekly'));
