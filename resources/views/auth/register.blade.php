@@ -52,7 +52,7 @@
 				</div>
 				<div class="form-row">
 					<label for="kelas">{{__('Kelas')}}</label>
-					<select name="id_kelas" id="kelas-select" class="form-select" aria-label="Default select example">
+					<select name="id_kelas" id="kelas-select" class="form-select input-text" aria-label="Default select example">
 						<option selected value="">Pilih Kelas</option>
 						@foreach($kelas as $kelas)
 						<option value="{{$kelas->id}}">{{$kelas->nama}}</option>
