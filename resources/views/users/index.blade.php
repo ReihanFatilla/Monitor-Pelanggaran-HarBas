@@ -194,9 +194,6 @@
                 levelSelect.val(currentLevel)
             });
         })
-
-
-
     })
 </script>
 @endsection

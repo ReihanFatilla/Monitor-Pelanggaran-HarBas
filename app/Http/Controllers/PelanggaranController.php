@@ -59,6 +59,7 @@ class PelanggaranController extends Controller
         $kelas = $request->input('kelas');
         $siswa = Siswa::with('user')->where('id_kelas', Kelas::where('id', $kelas)->first()->id)->get();
 
+
         return response()->json(['siswa' => $siswa]);
     }
 

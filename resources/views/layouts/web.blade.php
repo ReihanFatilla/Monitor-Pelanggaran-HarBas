@@ -29,21 +29,21 @@
                     <div class="nav_list">
                         @include('layouts.menu')
                     </div>
-                </div> <a href="#" class="nav_link">
+                </div> 
+                <a href="#" class="nav_link">
                     <i class='bx bx-user-circle nav_icon bxs-lg'></i>
                     <span class="nav_name">{{Auth::user()->name}}</span>
-
                 </a>
-                <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}"
+
+                <a class="nav-link d-flex align-items-center mb-5" href="{{ route('logout') }}" style="gap:20px; color:#009879;margin-left: 10px;"
                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                            <i class="bi bi-box-arrow-left"></i>
-                            Logout Sementara
+                            <i class='bx bx-log-out-circle '></i>
+                            Logout
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                    </li>
+                </a>
             </nav>
         </div>
         <!--Container Main start-->
